@@ -1,6 +1,6 @@
 class App {
     constructor(){
-        this.mainWrapper = document.getElementById('main');
+        this.photographerSection = document.querySelector('.photographer_section');
         this.photographersApi = new PhotographerApi('/data/photographers.json');
     }
 
@@ -12,7 +12,7 @@ class App {
             .map(photographer => new Photographer(photographer))
             .forEach(photographer => {
                 const Template = new PhotographerTemplate(photographer);
-                this.mainWrapper.appendChild(
+                this.photographerSection.appendChild(
                     Template.createUserCard()
                 );
             });

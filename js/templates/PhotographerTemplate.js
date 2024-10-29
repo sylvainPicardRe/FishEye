@@ -8,13 +8,13 @@ class PhotographerTemplate {
 
         const img = document.createElement( 'img' );
         img.setAttribute("src", this._photographer.portrait);
-        img.setAttribute("alt", name);
+        img.setAttribute("alt",  this._photographer.name);
 
         const h2 = document.createElement( 'h2' );
         h2.textContent = this._photographer.name;
 
         const a = document.createElement( 'a' );
-        // a.setAttribute("href", photographerLink);
+        a.setAttribute("href",  this._photographer.url);
         a.appendChild(img);
         a.appendChild(h2);
 
@@ -27,7 +27,7 @@ class PhotographerTemplate {
         description.textContent = this._photographer.tagline;
 
         const pricing = document.createElement( 'p' );
-        pricing.setAttribute("class", "margin-small font-size-small princing");
+        pricing.setAttribute("class", "margin-small font-size-small pricing");
         pricing.textContent = this._photographer.price + "€/jour";
         
         article.appendChild(a);

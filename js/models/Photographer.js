@@ -1,6 +1,6 @@
 class Photographer {
     constructor(data) {
-        this._name = data._name;
+        this._name = data.name;
         this._id = data.id;
         this._city = data.city;
         this._country = data.country;
@@ -31,6 +31,10 @@ class Photographer {
 
     get portrait() {
         return `/assets/portraits/${this._portrait}`
+    }
+
+    get url(){
+        return `./photographer/${this._id}`
     }
 
 
