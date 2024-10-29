@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- TODO a quoi sert cette ligne ? -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- TODO a quoi sert cette ligne ? -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- TODO a quoi sert cette ligne ? -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"> <!-- TODO a quoi sert cette ligne ? -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"> <!-- TODO a quoi sert cette ligne ? -->
+    <link rel="stylesheet" href="/css/normalize.css"> <!-- TODO a quoi sert cette ligne ? -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <title>FishEye</title>
+</head>
+
+<body>
+    <header class="main-header">
+        <a href="./index.html">
+            <img src="./assets/logo.png" class="logo" alt="Fisheye Home page">
+        </a>
+        <h1>Nos photographes</h1>
+    </header>
+    <main id="main"></main>
+    <!-- Models -->
+    <script src="js/models/Photographers.js"></script>
+    
+    <!-- Templates -->
+    <script src="js/templates/PhotographerCard.js"></script>
+
+    <!-- Api -->
+    <script src="js/Api/Api.js"></script>
+
+    <!-- Entry point -->
+    <script src="/js/App.js"></script>
+
+</body>
+</html>
