@@ -1,22 +1,23 @@
 class App {
     constructor(){
-        this.main = document.getElementById('main');
-        this.photographersApi = new PhotographersApi('/data/photographers.json');
+        this.mainWrapper = document.getElementById('main');
+        this.photographersApi = new PhotographerApi('/data/photographers.json');
     }
 
     async main(){
-        const photographersData = await this.photographersApi.getPhotographers();
-
+        const data = await this.photographersApi.getPhotographers();
+        const photographersData = data.photographers;
+        console.log(this.photographersApi.getPhotographers())
         photographersData
             .map(photographer => new Photographer(photographer))
             .forEach(photographer => {
-                const Template = new PhotographerCard(photographer)
-                this.main.appendChild(
-                    Template.createPhotographerCard()
-                )
+                const Template = new PhotographerTemplate(photographer);
+                this.mainWrapper.appendChild(
+                    Template.createUserCard()
+                );
             });
     }    
 }
 
-const app = new App()
-app.main()
+const app = new App();
+app.main();
