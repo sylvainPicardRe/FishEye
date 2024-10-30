@@ -29,23 +29,23 @@
     <main id="main">
         <div id="contact_modal" aria-hidden="true" role="dialog">
             <div class="modal">
-                <header>
-                    <h2>Contactez-moi</h2>
+                <header class="contact_header">
+
                     <img class="close-modal" src="assets/icons/close.svg" onclick="closeModal()" />
                 </header>
                 <form id="contactForm">
                     <div>
                         <label for="prenom">Prénom</label>
-                        <input type="text" id="prenom" name="prenom">
+                        <input type="text" id="prenom" name="prenom" required>
 
                         <label for="nom">Nom</label>
-                        <input type="text" id="nom" name="nom">
+                        <input type="text" id="nom" name="nom" required>
 
                         <label for="email">Email</label>
-                        <input type="mail" id="email" name="email">
+                        <input type="mail" id="email" name="email" required>
 
                         <label for="message">Votre message</label>
-                        <textarea id="message" name="message"></textarea>
+                        <textarea id="message" name="message" required></textarea>
                     </div>
                     <button class="contact_button" type="submit">Envoyer</button>
                 </form>

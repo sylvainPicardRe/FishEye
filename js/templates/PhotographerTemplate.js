@@ -84,4 +84,10 @@ class PhotographerTemplate {
         
         return (photographerHeader);
     }
+
+    getUserName() {
+        const h2 = document.createElement( 'h2' );
+        h2.innerHTML = `Contactez-moi <br> ${this._photographer.name}`
+        return (h2)
+    }
 }

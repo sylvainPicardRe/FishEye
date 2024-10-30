@@ -14,25 +14,30 @@ class App {
         
         if(currentPage.includes('/photographer.html')) {
             const photographerMedia = document.createElement('div');
-            photographerMedia.setAttribute('class', 'photographer_media')
+            photographerMedia.setAttribute('class', 'photographer_media');
+
+            const contactHeader = document.querySelector('.contact_header');
+
             let params = new URL(document.location).searchParams;
             let photographerId = parseInt(params.get('id'));
             
-            console.log(photographerId);
-
             const photographerData = await this.photographersApi.getPhotographer(photographerId);
-            console.log(photographerData);
+            
             const photographer = new Photographer(photographerData) 
             const Template = new PhotographerTemplate(photographer);
             this.mainWrapper.appendChild(
                 Template.createUserHeader()
             )
+
+            contactHeader.appendChild(
+                Template.getUserName()
+            )
+
             const mediasData = data.media;
             mediasData
             .map(media => new MediasFactory(media))
             .forEach(media => {
                 if(media.photographerId === photographerId){
-                    console.log(media);
                     const Template = new MediaTemplate(media);
                     photographerMedia.appendChild(
                         Template.createMediaCard()
