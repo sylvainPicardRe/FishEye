@@ -30,7 +30,7 @@ class Photographer {
     }
 
     get portrait() {
-        return `/assets/portraits/${this._portrait}`
+        return `/assets/images/portraits/${this._portrait}`
     }
 
     get url(){

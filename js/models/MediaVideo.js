@@ -30,7 +30,7 @@ class MediaVideo {
     }
 
     get src() {
-        return `<video><source src="./assets/medias/${this._video}"></video>`
+        return `<video><source src="./assets/images/medias/${this._video}"></video>`
     }
 
     get likes() {

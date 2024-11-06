@@ -1,7 +1,7 @@
 class App {
     constructor(){
         this.mainWrapper = document.getElementById("main");
-        this.photographersApi = new PhotographerApi('/data/photographers.json');
+        this.photographersApi = new PhotographerApi('./assets/data/photographers.json');
     }
 
     async main(){
@@ -50,10 +50,13 @@ class App {
                         Template.createCarouselCard(i)
                     )
                     i++;
+                    setupLikes(media)
+                    
                 }
             })
 
-            this.mainWrapper.appendChild(photographerMedia)
+            this.mainWrapper.appendChild(photographerMedia);
+
         } else {
             const photographerSection = document.querySelector('.photographer_section');
             photographersData
@@ -68,6 +71,16 @@ class App {
         
         carousel();
     }    
+}
+
+function setupLikes(media) {
+    const likes = document.querySelectorAll('.like');
+    likes.forEach((like, index) => {
+        like.addEventListener('click', () => {
+            media[index].likes += 1; // Augmentez le nombre de likes
+            console.log(`Likes pour le média ${media[index].title}: ${media[index].likes}`);
+        });
+    });
 }
 
 const app = new App();

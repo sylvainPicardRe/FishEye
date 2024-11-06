@@ -30,7 +30,7 @@ class MediaPhoto {
     }
 
     get src() {
-        return `<img src="./assets/medias/${this._image}">`
+        return `<img src="./assets/images/medias/${this._image}">`
     }
 
     get likes() {
