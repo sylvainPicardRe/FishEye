@@ -51,10 +51,29 @@
                 </form>
             </div>
         </div>
+        <div id="carousel">
+            <div role="button" class="controls controls-left" id="prev">
+                <span class="img prev-image">
+                    <i aria-hidden="true" class="fa-solid fa-chevron-left"></i>
+                </span>
+                <p class="sr-only">Previous</p>
+            </div>
+            <ul class="carousel">
+            </ul>
+            <div role="button" class="controls controls-right" id="next">
+                <span class="img next-image">
+                    <i aria-hidden="true" class="fa fa-chevron-right"></i>
+                </span>
+                <p class="sr-only">Suivant</p>
+            </div>
+            <div role="button" class="carousel-close">
+                <i class="fa-solid fa-xmark"  onclick="closeCarousel()"></i>
+            </div>
+        </div>
     </main>
     <!-- Factories -->
     <script src="js/factories/MediasFactory.js"></script>
-
+    
     <!-- Models -->
     <script src="js/models/Photographer.js"></script>
     <script src="js/models/MediaPhoto.js"></script>
@@ -63,13 +82,15 @@
     <!-- Templates -->
     <script src="js/templates/PhotographerTemplate.js"></script>
     <script src="js/templates/MediaTemplate.js"></script>
-
+    
     <!-- Api -->
     <script src="js/Api/Api.js"></script>
     
-    <!-- utils -->
-    <script src="js/utils/contactForm.js"></script>
-
     <!-- Entry point -->
     <script src="/js/App.js"></script>
+    
+    <!-- utils -->
+    <script src="js/utils/contactForm.js"></script>
+    <script src="js/utils/carousel.js" defer></script>
+    
 </body>

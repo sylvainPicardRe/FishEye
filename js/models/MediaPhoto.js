@@ -44,4 +44,8 @@ class MediaPhoto {
     get price() {
         return this._price
     }
+
+    set likes(likes) {
+        this._likes += likes; 
+    }
 }

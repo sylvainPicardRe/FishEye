@@ -6,7 +6,7 @@ class MediaVideo {
         this._video = data.video
         this._likes = data.likes
         this._date = data.date
-        this._price = data.price 
+        this._price = data.price
     }
     
     get id() {

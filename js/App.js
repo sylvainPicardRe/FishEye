@@ -14,9 +14,11 @@ class App {
         
         if(currentPage.includes('/photographer.html')) {
             const photographerMedia = document.createElement('div');
-            photographerMedia.setAttribute('class', 'photographer_media');
+            photographerMedia.setAttribute('class', 'photographer_media thumbnails');
 
             const contactHeader = document.querySelector('.contact_header');
+
+            const carousel = document.querySelector('.carousel');
 
             let params = new URL(document.location).searchParams;
             let photographerId = parseInt(params.get('id'));
@@ -34,16 +36,23 @@ class App {
             )
 
             const mediasData = data.media;
+            let i = 0;
             mediasData
             .map(media => new MediasFactory(media))
             .forEach(media => {
                 if(media.photographerId === photographerId){
                     const Template = new MediaTemplate(media);
+
                     photographerMedia.appendChild(
-                        Template.createMediaCard()
+                        Template.createMediaCard(i)
                     )
+                    carousel.appendChild(
+                        Template.createCarouselCard(i)
+                    )
+                    i++;
                 }
             })
+
             this.mainWrapper.appendChild(photographerMedia)
         } else {
             const photographerSection = document.querySelector('.photographer_section');
@@ -57,6 +66,7 @@ class App {
             });
         }
         
+        carousel();
     }    
 }
 
