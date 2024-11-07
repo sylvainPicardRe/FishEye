@@ -45,6 +45,11 @@ class MediaVideo {
     get price() {
         return this._price
     }
+    
+    get canLike(){
+        return this._canLike
+    }
+
     set likes(like) {
         this._likes += like; 
     }
