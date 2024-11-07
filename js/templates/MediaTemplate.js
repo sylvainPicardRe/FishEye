@@ -16,6 +16,7 @@ class MediaTemplate {
         titleCard.textContent = this._media.title;
 
         const likesCard = document.createElement( 'p' );
+        likesCard.setAttribute('class', 'like-counter');
         likesCard.textContent = this._media.likes;
 
         const i = document.createElement( 'i' );
@@ -23,6 +24,7 @@ class MediaTemplate {
         
         const divLikes = document.createElement( 'div' );
         divLikes.setAttribute('class', 'like');
+        divLikes.setAttribute('data-id', `${position}`);
 
         divLikes.appendChild(likesCard);
         divLikes.appendChild(i);

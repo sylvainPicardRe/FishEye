@@ -6,7 +6,8 @@ class MediaPhoto {
         this._image = data.image
         this._likes = data.likes
         this._date = data.date
-        this._price = data.price 
+        this._price = data.price
+        this._canLike = true
     }
     
     get id() {
@@ -45,7 +46,19 @@ class MediaPhoto {
         return this._price
     }
 
-    set likes(likes) {
-        this._likes += likes; 
+    get canLike(){
+        return this._canLike
+    }
+
+    set likes(like) {
+        this._likes += like; 
+    }
+    
+    set canLike(bool){
+        if(!bool){
+            this._canLike = false
+        } else {
+            this._canLike = true
+        }
     }
 }

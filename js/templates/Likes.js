@@ -3,8 +3,8 @@ class Likes{
         this._allLikes = allLikes;
         this._price = price;
     }
-    createAllLikesDOM(){
 
+    createAllLikesDOM(){
         const div = document.createElement( 'div' );
         div.setAttribute('class', 'likes-price')
         

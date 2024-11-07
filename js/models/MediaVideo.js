@@ -7,6 +7,7 @@ class MediaVideo {
         this._likes = data.likes
         this._date = data.date
         this._price = data.price
+        this._canLike = true
     }
     
     get id() {
@@ -43,5 +44,16 @@ class MediaVideo {
 
     get price() {
         return this._price
+    }
+    set likes(like) {
+        this._likes += like; 
+    }
+    
+    set canLike(bool){
+        if(!bool){
+            this._canLike = false
+        } else {
+            this._canLike = true
+        }
     }
 }

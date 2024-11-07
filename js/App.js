@@ -5,6 +5,9 @@ class App {
         this.photographersApi = new PhotographerApi('./assets/data/photographers.json');
         this.allLikes = 0;
         this.price = 0;
+        this.mediasArray = []
+        this.currentLike;
+        this.canLike = true;
     }
 
     async main(){
@@ -17,10 +20,10 @@ class App {
         if(currentPage.includes('/photographer.html')) {
             const photographerMedia = document.createElement('div');
             photographerMedia.setAttribute('class', 'photographer_media thumbnails');
-
+            
             const contactHeader = document.querySelector('.contact_header');
-
-            const carousel = document.querySelector('.carousel');
+            
+            const carouselWrapper = document.querySelector('.carousel');
 
             let params = new URL(document.location).searchParams;
             let photographerId = parseInt(params.get('id'));
@@ -44,22 +47,56 @@ class App {
             .map(media => new MediasFactory(media))
             .forEach(media => {
                 if(media.photographerId === photographerId){
+                    this.mediasArray.push(media)
                     this.allLikes += media._likes
                     const Template = new MediaTemplate(media);
 
                     photographerMedia.appendChild(
                         Template.createMediaCard(i)
                     )
-                    carousel.appendChild(
+                    carouselWrapper.appendChild(
                         Template.createCarouselCard(i)
                     )
-                    i++;
-                    setupLikes(media)
-                    
+                    i++;                    
                 }
             })
-
+            
+            const TemplateLikes = new Likes(this.allLikes, this.price);
+            carousel();
             this.mainWrapper.appendChild(photographerMedia);
+            this.allLikesWrapper.appendChild(TemplateLikes.createAllLikesDOM());
+
+            const likes = document.querySelectorAll('.like')
+            likes.forEach(like => {
+                like.addEventListener('click', ()=> {
+                    const allLikes = document.querySelector('.all-likes-content') 
+                    let pAllLikes = allLikes.children[0];
+                    const likeCount = like.querySelector('.like-counter');
+                    const id = like.getAttribute('data-id')
+                    let currentCount = parseInt(likeCount.textContent)
+                    let mediaElement = {}
+                    this.mediasArray.forEach((media, index)=>{
+                        if(id == index){
+                            mediaElement = media
+                        }
+                    })
+                    if(mediaElement.canLike){
+                        mediaElement.likes = 1;
+                        mediaElement.canLike = false
+                        currentCount += 1;
+                        this.allLikes += 1
+                        pAllLikes.textContent = this.allLikes;
+                        likeCount.textContent = currentCount;
+                    } else {
+                        mediaElement.likes = -1
+                        mediaElement.canLike = true
+                        this.allLikes -= 1
+                        currentCount -= 1;
+                        pAllLikes.textContent = this.allLikes;
+                        likeCount.textContent = currentCount;
+                    }
+                })
+            })
 
         } else {
             const photographerSection = document.querySelector('.photographer_section');
@@ -72,21 +109,7 @@ class App {
                 );
             });
         }
-        
-        carousel();
-        const Template = new Likes(this.allLikes, this.price);
-        this.allLikesWrapper.appendChild(Template.createAllLikesDOM());
     }    
-}
-
-function setupLikes(media) {
-    const likes = document.querySelectorAll('.like');
-    likes.forEach((like, index) => {
-        like.addEventListener('click', () => {
-            media[index].likes += 1; // Augmentez le nombre de likes
-            console.log(`Likes pour le média ${media[index].title}: ${media[index].likes}`);
-        });
-    });
 }
 
 const app = new App();
