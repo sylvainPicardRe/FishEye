@@ -207,3 +207,27 @@ form #message {
 .item-1, .item-2{
     display: none;
 }
+
+#all-likes{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: #DB8876;
+    margin-right: 2rem;
+    padding: 0 2rem;
+    border-radius: 0.2rem;
+    font-weight: 700;
+}
+
+#all-likes :first-child{
+    display: flex;
+}
+.all-likes-content{
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.all-likes-content p {
+    margin-right: 0.5rem;
+}

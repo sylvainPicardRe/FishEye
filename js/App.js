@@ -1,14 +1,16 @@
 class App {
     constructor(){
         this.mainWrapper = document.getElementById("main");
+        this.allLikesWrapper = document.getElementById("all-likes");
         this.photographersApi = new PhotographerApi('./assets/data/photographers.json');
+        this.allLikes = 0;
+        this.price = 0;
     }
 
     async main(){
 
         const data = await this.photographersApi.get();
         const photographersData = data.photographers;
-
         
         const currentPage = window.location.pathname;
         
@@ -24,6 +26,7 @@ class App {
             let photographerId = parseInt(params.get('id'));
             
             const photographerData = await this.photographersApi.getPhotographer(photographerId);
+            this.price = photographerData.price
             
             const photographer = new Photographer(photographerData) 
             const Template = new PhotographerTemplate(photographer);
@@ -41,6 +44,7 @@ class App {
             .map(media => new MediasFactory(media))
             .forEach(media => {
                 if(media.photographerId === photographerId){
+                    this.allLikes += media._likes
                     const Template = new MediaTemplate(media);
 
                     photographerMedia.appendChild(
@@ -70,6 +74,8 @@ class App {
         }
         
         carousel();
+        const Template = new Likes(this.allLikes, this.price);
+        this.allLikesWrapper.appendChild(Template.createAllLikesDOM());
     }    
 }
 
