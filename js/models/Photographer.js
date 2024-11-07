@@ -36,6 +36,5 @@ class Photographer {
     get url(){
         return `./photographer.html?id=${this._id}`
     }
-
-
 }
+

@@ -27,6 +27,8 @@
         </a>
     </header>
     <main id="main">
+        <div class="photograph-header"></div>
+        <div class="photograph-medias"></div>
         <div id="contact_modal" aria-hidden="true" role="dialog">
             <div class="modal">
                 <header class="contact_header">
@@ -51,25 +53,12 @@
                 </form>
             </div>
         </div>
-        <div id="carousel">
-            <div role="button" class="controls controls-left" id="prev">
-                <span class="img prev-image">
-                    <i aria-hidden="true" class="fa-solid fa-chevron-left"></i>
-                </span>
-                <p class="sr-only">Previous</p>
-            </div>
-            <ul class="carousel">
-            </ul>
-            <div role="button" class="controls controls-right" id="next">
-                <span class="img next-image">
-                    <i aria-hidden="true" class="fa fa-chevron-right"></i>
-                </span>
-                <p class="sr-only">Suivant</p>
-            </div>
-            <div role="button" class="carousel-close">
-                <i class="fa-solid fa-xmark"  onclick="closeCarousel()"></i>
+        <div id="lighbox_modal" aria-hidden="true" role="dialog">
+            <div class="modal">
             </div>
         </div>
+
+
     </main>
     <!-- Factories -->
     <script src="js/factories/MediasFactory.js"></script>
