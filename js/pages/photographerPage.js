@@ -88,16 +88,16 @@ class PhotographerPage{
         //     }
         // }); 
 
-        document.getElementById("sort-select").addEventListener("change", (event) => {
-            let tab = sortMedias(event.target.value, this.mediasArray);
-            photographerMedia.innerHTML= '';
-            tab.forEach((media, index) =>{
-                const TemplateMedias = new MediaTemplate(media)
-                photographerMedia.appendChild(
-                    TemplateMedias.createMediaCard(index)
-                )
-            })
-        })
+        // document.getElementById("sort-select").addEventListener("change", (event) => {
+        //     let tab = sortMedias(event.target.value, this.mediasArray);
+        //     photographerMedia.innerHTML= '';
+        //     tab.forEach((media, index) =>{
+        //         const TemplateMedias = new MediaTemplate(media)
+        //         photographerMedia.appendChild(
+        //             TemplateMedias.createMediaCard(index)
+        //         )
+        //     })
+        // })
 
         // likes
         allLikesWrapper.appendChild(
@@ -133,6 +133,9 @@ class PhotographerPage{
                 likeCount.textContent = currentCount;
             })
         })
+
+        const Filter = new FilterForm(this.mediasArray)
+        Filter.render()
 
 	}
 
