@@ -47,18 +47,16 @@ class MediaPhoto {
     }
 
     get canLike(){
+        console.log('canLike', this._canLike)
         return this._canLike
     }
 
-    set likes(like) {
-        this._likes += like; 
+     set likes(likes) {
+        this._likes = likes; 
     }
     
-    set canLike(bool){
-        if(!bool){
-            this._canLike = false
-        } else {
-            this._canLike = true
-        }
+    set canLike(canLike){
+        console.log('var', canLike)
+        this._canLike = canLike;
     }
 }

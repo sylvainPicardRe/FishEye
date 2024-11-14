@@ -1,10 +1,6 @@
-class Likes{
-    constructor(allLikes, price){
-        this._allLikes = allLikes;
-        this._price = price;
-    }
+class LikesTemplate{
 
-    createAllLikesDOM(){
+    createAllLikesDOM(allLikes, price){
         const div = document.createElement( 'div' );
         div.setAttribute('class', 'likes-price')
         
@@ -13,13 +9,13 @@ class Likes{
         const divPrice = document.createElement( 'div' );
         
         const pAllLikes = document.createElement( 'p' );
-        pAllLikes.textContent = this._allLikes;
+        pAllLikes.textContent = allLikes;
         
         const i = document.createElement( 'i' );
         i.setAttribute('class', 'fa-solid fa-heart');
         
         const pPrice = document.createElement( 'p' );
-        pPrice.textContent = `${this._price}€ / jour`;
+        pPrice.textContent = `${price}€ / jour`;
         
         divAllLikes.appendChild(pAllLikes);
         divAllLikes.appendChild(i);

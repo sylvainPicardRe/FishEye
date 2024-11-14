@@ -24,7 +24,7 @@ class MediaTemplate {
         
         const divLikes = document.createElement( 'div' );
         divLikes.setAttribute('class', 'like');
-        divLikes.setAttribute('data-id', `${position}`);
+        divLikes.setAttribute('data-id', `${this._media.id}`);
 
         divLikes.appendChild(likesCard);
         divLikes.appendChild(i);

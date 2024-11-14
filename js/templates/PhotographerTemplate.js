@@ -39,7 +39,7 @@ class PhotographerTemplate {
 
     createUserHeader() {
         const photographerHeader = document.createElement( 'div' );
-        photographerHeader.setAttribute('class', 'photographer_header');
+        photographerHeader.setAttribute('class', "profile");
 
         const divInfo = document.createElement( 'div' );
         divInfo.setAttribute('class', "infos_profile");

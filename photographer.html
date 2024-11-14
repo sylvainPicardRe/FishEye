@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- TODO a quoi sert cette ligne ? -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- TODO a quoi sert cette ligne ? -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
     <link rel="preconnect" href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
 
@@ -11,9 +11,8 @@
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com"> <!-- TODO a quoi sert cette ligne ? -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"> <!-- TODO a quoi sert cette ligne ? -->
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/photographer.css">
 
@@ -27,6 +26,20 @@
         </a>
     </header>
     <main id="main">
+        <section class="photographer_header"></section>
+        <section class="photographer_media">
+            <div class="sort-wrapper">
+                <label class="sort-label" for="sort-select">Trier par</label>
+                <!-- <i class="fa-solid fa-chevron-down"></i> -->
+                <select name="sort" id="sort-select">
+                    <option value="popularite">Popularité</option>
+                    <option value="date">Date</option>
+                    <option value="titre">Titre</option>
+                </select>
+            </div>
+            <div class="medias-wrapper"></div>
+             <div></div>
+        </section>
         <div id="contact_modal" aria-hidden="true" role="dialog">
             <div class="modal">
                 <header class="contact_header">
@@ -87,12 +100,16 @@
     
     <!-- Api -->
     <script src="js/Api/Api.js"></script>
+
+    <!-- Page -->
+    <script src="/js/pages/photographerPage.js"></script>
     
     <!-- Entry point -->
     <script src="/js/App.js"></script>
     
     <!-- utils -->
     <script src="js/utils/contactForm.js"></script>
+    <script src="js/utils/sort.js"></script>
     <script src="js/utils/carousel.js" defer></script>
     
 </body>
