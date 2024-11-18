@@ -1,4 +1,7 @@
-class MediasFactory {
+import { MediaPhoto } from "../models/MediaPhoto.js";
+import { MediaVideo } from "../models/MediaVideo.js";
+
+export class MediasFactory {
     constructor(data){
         if(data.image){
             return new MediaPhoto(data)

@@ -1,4 +1,4 @@
-class PhotographerTemplate {
+export class PhotographerTemplate {
     constructor(photographer){
         this._photographer = photographer;
     }

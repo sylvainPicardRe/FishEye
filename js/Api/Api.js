@@ -1,4 +1,4 @@
-class Api {
+export class Api {
     /**
      * 
      * @param {string} url
@@ -20,7 +20,7 @@ class Api {
     }
 }
 
-class PhotographerApi extends Api {
+export class PhotographerApi extends Api {
     /**
      * 
      * @param {string} url

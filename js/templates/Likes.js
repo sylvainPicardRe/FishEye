@@ -1,4 +1,4 @@
-class LikesTemplate{
+export class LikesTemplate{
 
     createAllLikesDOM(allLikes, price){
         const div = document.createElement( 'div' );

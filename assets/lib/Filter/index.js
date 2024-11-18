@@ -1,4 +1,4 @@
-class Filter {
+export class Filter {
     /**
      * 
      * @param {string} criterion
@@ -20,8 +20,7 @@ class Filter {
         } else {
             return Medias
         }
-
-        // return Medias.filter(Media => Media.criterion === criterion)
+        
         return sortMedias
     }
 }

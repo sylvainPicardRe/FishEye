@@ -1,4 +1,8 @@
-class HomePage{
+import { PhotographerApi } from "../Api/Api.js";
+import { Photographer } from "../models/Photographer.js";
+import { PhotographerTemplate } from "../templates/PhotographerTemplate.js";
+
+export class HomePage{
     constructor(){
         this.photographersApi = new PhotographerApi('./assets/data/photographers.json');
         this.photographersArray = []

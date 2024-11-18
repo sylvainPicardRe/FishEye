@@ -1,4 +1,4 @@
-class MediaTemplate {
+export class MediaTemplate {
     constructor(media){
         this._media = media;
     }

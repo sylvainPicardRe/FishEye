@@ -1,4 +1,4 @@
-function carousel(){
+export function carousel(){
     const prevBtn = document.querySelector('.prev-image');
     const nextBtn = document.querySelector('.next-image');
     const carouselItems = document.querySelectorAll('.carousel-item');
@@ -62,19 +62,18 @@ function carousel(){
     });
 }
 
-function openImage(i){
+export function openImage(i){
     const carousel = document.getElementById('carousel');
     carousel.style.display = "flex";
-    const carouselItems = document.querySelectorAll('.carousel-item');
     const item = document.querySelector(`.item-${i}`);
     item.style.display = 'block';
 
 }
 
-function closeCarousel() {
+export function closeCarousel() {
     const carousel = document.getElementById('carousel');
     carousel.style.display = "none";
-    main.setAttribute("aria-hidden", "false");
+    main.setAttribute("aria-hidden", "false"); //TODO vérifier main
     carousel.setAttribute("aria-hidden", "true");
     const carouselItems = document.querySelectorAll('.carousel-item');
     carouselItems.forEach(item => {

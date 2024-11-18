@@ -1,4 +1,7 @@
-class FilterForm {
+import { FilterMediasAdapter } from "../adapters/FilterMediasAdapters.js"
+import { MediaTemplate } from "./MediaTemplate.js"
+
+export class FilterForm {
     constructor(Medias) {
         this.Medias = Medias
 

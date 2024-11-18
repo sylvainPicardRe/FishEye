@@ -1,4 +1,4 @@
-class MediaVideo {
+export class MediaVideo {
     constructor(data) {
         this._id = data.id;
         this._photographerId = data.photographerId

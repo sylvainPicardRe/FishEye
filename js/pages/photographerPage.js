@@ -1,4 +1,13 @@
-class PhotographerPage{
+import { MediaTemplate } from "../templates/MediaTemplate.js";
+import { FilterForm } from "../templates/FilterForm.js";
+import { PhotographerApi } from "../Api/Api.js";
+import { Photographer } from "../models/Photographer.js";
+import {MediasFactory} from "../factories/MediasFactory.js";
+import { PhotographerTemplate } from "../templates/PhotographerTemplate.js";
+import { LikesTemplate } from "../templates/Likes.js";
+
+
+export class PhotographerPage{
     constructor(){
         this.photographersApi = new PhotographerApi('./assets/data/photographers.json');
         this.photographersArray = [];
@@ -58,9 +67,7 @@ class PhotographerPage{
 	async displayData() {
         const photographerHeader = document.querySelector('.photographer_header');
         const photographerMedia = document.querySelector('.medias-wrapper');
-        const contactHeader = document.querySelector('.contact_header');
         const allLikesWrapper = document.getElementById("all-likes");
-        const carouselWrapper = document.querySelector('.carousel'); 
         const TemplatePhotographer = new PhotographerTemplate(this.photographer);
         const TemplateLikes = new LikesTemplate();
         
@@ -77,27 +84,6 @@ class PhotographerPage{
                 TemplateMedias.createMediaCard(index)
             )
         })
-        // this.mediasArray
-        // .map(media => new MediasFactory(media))
-        // .forEach((media, index) =>{
-        //     if(media.photographerId === this.photographerId){
-        //         const TemplateMedias = new MediaTemplate(media)
-        //         photographerMedia.appendChild(
-        //             TemplateMedias.createMediaCard(index)
-        //         )
-        //     }
-        // }); 
-
-        // document.getElementById("sort-select").addEventListener("change", (event) => {
-        //     let tab = sortMedias(event.target.value, this.mediasArray);
-        //     photographerMedia.innerHTML= '';
-        //     tab.forEach((media, index) =>{
-        //         const TemplateMedias = new MediaTemplate(media)
-        //         photographerMedia.appendChild(
-        //             TemplateMedias.createMediaCard(index)
-        //         )
-        //     })
-        // })
 
         // likes
         allLikesWrapper.appendChild(

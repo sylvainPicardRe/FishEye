@@ -10,14 +10,14 @@ const prenom = document.getElementById('prenom').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
 
-function displayModal() {
+export function displayModal() {
 	modal.style.display = "block";
     main.setAttribute("aria-hidden", "true");
     modal.setAttribute("aria-hidden", "false");
     openModalBtn.focus();
 }
 
-function closeModal() {
+export function closeModal() {
     modal.style.display = "none";
     main.setAttribute("aria-hidden", "false");
     modal.setAttribute("aria-hidden", "true");
